@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Motores Industriais - v1.0.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho do Sistema -->
+        <header class="header">
+            <div>
+                <h1>Monitoramento de Motores Industriais</h1>
+                <p class="subtitle">Painel de Telemetria, Limites Operacionais e Manutenção Preventiva</p>
+            </div>
+            <div class="meta-info">
+                <span class="badge-version">v1.0.0</span>
+                <span class="timestamp">Leitura: 26/11/2026 13:57:00</span>
+            </div>
+        </header>
+
+        <!-- Estatísticas Operacionais da Planta -->
+        <section class="section">
+            <h2>Estatísticas Operacionais da Planta</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Total de Motores</span>
+                    <span class="stat-value">4</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Temperatura Média</span>
+                    <span class="stat-value">72.58 °C</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Corrente Média</span>
+                    <span class="stat-value">15.70 A</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Potência Total</span>
+                    <span class="stat-value">31.50 kW</span>
+                </div>
+                <div class="stat-card highlight-hot">
+                    <span class="stat-label">Motor Mais Quente</span>
+                    <span class="stat-value">MTR-02 <small>(84.7 °C)</small></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela de Monitoramento -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Leituras dos Motores</h2>
+                <div class="limites-bar">
+                    <span><strong>Limites:</strong></span>
+                    <span>Temp: ≤ 80.0 °C</span>
+                    <span>Corr: ≤ 18.5 A</span>
+                    <span>Vib: ≤ 4.5 mm/s</span>
+                    <span>RPM: 1400 - 1800</span>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>ID / Setor</th>
+                            <th>Temperatura</th>
+                            <th>Corrente</th>
+                            <th>Vibração</th>
+                            <th>Rotação</th>
+                            <th>Potência</th>
+                            <th>Alertas Ativos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- MTR-01 -->
+                        <tr>
+                            <td><span class="badge status-normal">NORMAL</span></td>
+                            <td><strong>MTR-01</strong> <span class="setor">Estamparia</span></td>
+                            <td>68.4 °C</td>
+                            <td>14.2 A</td>
+                            <td>2.1 mm/s</td>
+                            <td>1750 RPM</td>
+                            <td class="text-right">7.5 kW</td>
+                            <td class="alert-none">Operando nos limites</td>
+                        </tr>
+                        <!-- MTR-02 -->
+                        <tr class="row-critico">
+                            <td><span class="badge status-critico">CRÍTICO</span></td>
+                            <td><strong>MTR-02</strong> <span class="setor">Usinagem</span></td>
+                            <td class="val-danger">84.7 °C</td>
+                            <td class="val-danger">19.3 A</td>
+                            <td class="val-danger">5.2 mm/s</td>
+                            <td>1690 RPM</td>
+                            <td class="text-right">11.0 kW</td>
+                            <td class="alert-list">
+                                • Superaquecimento (84.7 °C)<br>
+                                • Sobrecorrente (19.3 A)<br>
+                                • Vibração elevada (5.2 mm/s)
+                            </td>
+                        </tr>
+                        <!-- MTR-03 -->
+                        <tr class="row-atencao">
+                            <td><span class="badge status-atencao">ATENÇÃO</span></td>
+                            <td><strong>MTR-03</strong> <span class="setor">Bobinagem</span></td>
+                            <td>76.2 °C</td>
+                            <td>17.8 A</td>
+                            <td class="val-warning">4.7 mm/s</td>
+                            <td>1520 RPM</td>
+                            <td class="text-right">5.5 kW</td>
+                            <td class="alert-list">
+                                • Vibração elevada (4.7 mm/s)
+                            </td>
+                        </tr>
+                        <!-- MTR-04 -->
+                        <tr>
+                            <td><span class="badge status-normal">NORMAL</span></td>
+                            <td><strong>MTR-04</strong> <span class="setor">Pintura</span></td>
+                            <td>61.0 °C</td>
+                            <td>11.5 A</td>
+                            <td>1.8 mm/s</td>
+                            <td>1780 RPM</td>
+                            <td class="text-right">7.5 kW</td>
+                            <td class="alert-none">Operando nos limites</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Plano de Manutenção Preventiva -->
+        <section class="section">
+            <h2>Plano de Manutenção Preventiva</h2>
+            <p class="section-desc">Priorização de atendimento para evitar paradas não programadas na linha de produção.</p>
+            
+            <div class="maintenance-grid">
+                <!-- Crítico -->
+                <div class="maint-card card-critico">
+                    <div class="maint-header">
+                        <h3>🚨 Parada Imediata (CRÍTICO)</h3>
+                        <span class="count-pill">1 motor</span>
+                    </div>
+                    <p class="maint-rule">Motores com 2 ou mais parâmetros fora do limite operacional:</p>
+                    <blockquote class="maint-quote">
+                        <strong>[MTR-02]</strong> - Usinagem <span>(3 ocorrências)</span>
+                    </blockquote>
+                </div>
+
+                <!-- Atenção -->
+                <div class="maint-card card-atencao">
+                    <div class="maint-header">
+                        <h3>⚠️ Inspeção Programada (ATENÇÃO)</h3>
+                        <span class="count-pill">1 motor</span>
+                    </div>
+                    <p class="maint-rule">Motores com 1 parâmetro fora do limite operacional:</p>
+                    <blockquote class="maint-quote">
+                        <strong>[MTR-03]</strong> - Bobinagem <span>(1 ocorrência)</span>
+                    </blockquote>
+                </div>
+
+                <!-- Normal -->
+                <div class="maint-card card-normal">
+                    <div class="maint-header">
+                        <h3>🟢 Operação Estável (NORMAL)</h3>
+                        <span class="count-pill">2 motores</span>
+                    </div>
+                    <p class="maint-rule">Motores operando dentro de todos os limites:</p>
+                    <blockquote class="maint-quote">
+                        <strong>[MTR-01, MTR-04]</strong> - Estamparia / Pintura
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <p>Developed by: <strong>@gustavo-silveira09</strong> | Sistema de Monitoramento Industrial</p>
+        </footer>
+    </div>
+</body>
+</html>
